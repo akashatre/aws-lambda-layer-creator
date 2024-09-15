@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda Layer Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content">
+        <h1 class="typing-animation">Welcome to the AWS Lambda Layer Generator</h1>
+        <!-- <h1 class="welcome-message">Welcome to the AWS Lambda Layer Generator</h1> -->
+        <p>This tool allows you to create custom Lambda layers by specifying the required package.</p>
+
+        <form action="/create-layer" method="POST" class="input-container">
+            <label for="layer_name">Enter Layer Name (or package):</label>
+            <input type="text" id="layer_name" name="layer_name" placeholder="Enter a valid layer (e.g., pandas)" required>
+            <button type="submit">Create Layer</button>
+        </form>
+
+        <!-- Status messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="error-message" class="show">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Downloading message (it will disappear after downloading) -->
+        <div id="status-message">
+            <p>Layer is downloading...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Created by Akash Atre</p>
+    </footer>
+
+    <!-- Hamburger Menu (Hidden initially, visible on click) -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="modal" id="about-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>About Me</h2>
+            <p>Created by Akash Atre. Connect with me on <a href="https://www.linkedin.com/in/akash-atre-a264b0243" target="_blank">LinkedIn</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to show/hide the menu
+        function toggleMenu() {
+            document.getElementById("about-modal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("about-modal").style.display = "none";
+        }
+
+        // Function to hide the downloading message after download
+        window.onload = function() {
+            var statusMessage = document.getElementById('status-message');
+            if (statusMessage) {
+                setTimeout(function() {
+                    statusMessage.style.display = 'none';
+                }, 3000);  // Hide the message after 3 seconds
+            }
+        }
+    </script>
+</body>
+</html>

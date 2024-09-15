@@ -1,0 +1,184 @@
+/* Main page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.typing-animation {
+    font-size: 2.5em;
+    color: #ff69b4;  /* Neon pink */
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 5s steps(43, end) forwards; /* Typing animation for 43 characters */
+}
+
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 43ch; } /* The exact length of the message is 43 characters */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Hamburger menu styling */
+.hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 35px;
+    height: 4px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Main layout container */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Animation for welcome message */
+.welcome-message {
+    font-size: 2.5em;
+    color: #ff69b4;  /* Neon pink */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+/* Input container */
+.input-container {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    background-color: #1e90ff; /* Blue background */
+    color: white;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: #ddd;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 16px;
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Status message styling */
+#status-message, #error-message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 8px;
+    width: fit-content;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+#status-message p {
+    color: #17a2b8; /* Light blue for downloading status */
+}
+
+#error-message p {
+    color: #dc3545; /* Red for error status */
+}
+
+#status-message.show, #error-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Footer styling */
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #888;
+}
+
+/* Modal styling for about section */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #1c1c1e;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal-content h2, .modal-content p {
+    color: white;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}
