@@ -1,3 +1,5 @@
+
+![Screenshot (103)](https://github.com/user-attachments/assets/998222f3-2118-4387-9864-69e9395c6f2d)
 # Clone the repository
 git clone https://github.com/akashatre/aws-lambda-layer-creator.git
 
